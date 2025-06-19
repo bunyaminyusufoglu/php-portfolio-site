@@ -28,52 +28,10 @@ include 'includes/header.php';
             </div>
             <div class="col-lg-6 text-center">
                 <div class="bg-white p-4 rounded-3 shadow">
-                    <i class="fas fa-user-circle text-primary" style="font-size: 8rem;"></i>
+                    <img src="assets/img/profil.jpg" alt="Profil Resmi">
                     <h3 class="mt-3">Bünyamin YUSUFOĞLU</h3>
                     <p class="text-muted">Full Stack Developer</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- About Preview Section -->
-<section class="py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h2 class="display-5 fw-bold mb-4">Hakkımda</h2>
-                <p class="lead text-muted mb-5">
-                    5+ yıllık deneyimimle web geliştirme alanında çeşitli projelerde çalıştım. 
-                    Modern teknolojileri kullanarak kullanıcı deneyimini ön planda tutan çözümler üretiyorum.
-                </p>
-                
-                <!-- Stats -->
-                <div class="row g-4 mb-5">
-                    <div class="col-md-4">
-                        <div class="bg-light p-4 rounded-3">
-                            <h3 class="text-primary fw-bold">50+</h3>
-                            <p class="text-muted mb-0">Tamamlanan Proje</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="bg-light p-4 rounded-3">
-                            <h3 class="text-primary fw-bold">5+</h3>
-                            <p class="text-muted mb-0">Yıl Deneyim</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="bg-light p-4 rounded-3">
-                            <h3 class="text-primary fw-bold">30+</h3>
-                            <p class="text-muted mb-0">Mutlu Müşteri</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="about.php" class="btn btn-outline-primary btn-lg">
-                    <i class="fas fa-user me-2"></i>
-                    Daha Fazla Bilgi
-                </a>
             </div>
         </div>
     </div>
@@ -83,7 +41,7 @@ include 'includes/header.php';
 <section class="py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold">Öne Çıkan Projeler</h2>
+            <h2 class="display-5 fw-bold">Projeler</h2>
             <p class="lead text-muted">En son çalışmalarım</p>
         </div>
         
@@ -162,14 +120,15 @@ include 'includes/header.php';
         
         <div class="row g-4">
             <div class="col-lg-4">
-                <div class="bg-light p-4 rounded-3 h-100">
+                <div class="bg-light p-4 rounded-3 h-100 shadow-sm">
                     <h4 class="text-center mb-4">Frontend</h4>
                     <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary">HTML5</span>
-                        <span class="badge bg-primary">CSS3</span>
-                        <span class="badge bg-primary">JavaScript</span>
-                        <span class="badge bg-primary">React</span>
-                        <span class="badge bg-primary">Vue.js</span>
+                        <span class="badge bg-primary p-3">HTML5</span>
+                        <span class="badge bg-primary p-3">CSS3</span>
+                        <span class="badge bg-primary p-3">JavaScript</span>
+                        <span class="badge bg-primary p-3">React</span>
+                        <span class="badge bg-primary p-3">Angular</span>
+                        <span class="badge bg-primary p-3">Vue.js</span>
                     </div>
                 </div>
             </div>
@@ -178,11 +137,11 @@ include 'includes/header.php';
                 <div class="bg-light p-4 rounded-3 h-100">
                     <h4 class="text-center mb-4">Backend</h4>
                     <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary">PHP</span>
-                        <span class="badge bg-primary">Node.js</span>
-                        <span class="badge bg-primary">Python</span>
-                        <span class="badge bg-primary">Laravel</span>
-                        <span class="badge bg-primary">Express.js</span>
+                        <span class="badge bg-primary p-3">PHP</span>
+                        <span class="badge bg-primary p-3">Node.js</span>
+                        <span class="badge bg-primary p-3">Python</span>
+                        <span class="badge bg-primary p-3">Laravel</span>
+                        <span class="badge bg-primary p-3">Express.js</span>
                     </div>
                 </div>
             </div>
@@ -191,10 +150,10 @@ include 'includes/header.php';
                 <div class="bg-light p-4 rounded-3 h-100">
                     <h4 class="text-center mb-4">Veritabanı</h4>
                     <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary">MySQL</span>
-                        <span class="badge bg-primary">MongoDB</span>
-                        <span class="badge bg-primary">PostgreSQL</span>
-                        <span class="badge bg-primary">Redis</span>
+                        <span class="badge bg-primary p-3">MySQL</span>
+                        <span class="badge bg-primary p-3">MongoDB</span>
+                        <span class="badge bg-primary p-3">PostgreSQL</span>
+                        <span class="badge bg-primary p-3">Redis</span>
                     </div>
                 </div>
             </div>
@@ -209,15 +168,74 @@ include 'includes/header.php';
     </div>
 </section>
 
-<!-- Contact CTA Section -->
-<section class="py-5 bg-primary text-white">
-    <div class="container text-center">
-        <h2 class="display-5 fw-bold mb-4">Projeniz İçin Hazırım</h2>
-        <p class="lead mb-4">Yaratıcı ve yenilikçi çözümler için benimle iletişime geçin</p>
-        <a href="contact.php" class="btn btn-light btn-lg">
-            <i class="fas fa-envelope me-2"></i>
-            İletişime Geç
-        </a>
+<!-- Education Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Eğitim</h2>
+            <p class="lead text-muted">Aldığım eğitimler ve sertifikalar</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-12 col-lg-6">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">İstanbul Teknik Üniversitesi</h5>
+                        <p class="text-primary mb-1">Bilgisayar Mühendisliği (Lisans)</p>
+                        <p class="text-muted mb-2">2018 - 2022</p>
+                        <p class="mb-0">Bilgisayar mühendisliği alanında kapsamlı eğitim ve projeler.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Udemy</h5>
+                        <p class="text-primary mb-1">Full Stack Web Development (Sertifika)</p>
+                        <p class="text-muted mb-2">2021</p>
+                        <p class="mb-0">Modern web teknolojileri ile full stack geliştirme eğitimi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="education.php" class="btn btn-outline-primary btn-lg">
+                <i class="fas fa-graduation-cap me-2"></i>
+                Tüm Eğitim Geçmişim
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">İletişim</h2>
+            <p class="lead text-muted">Bana ulaşmak için aşağıdaki iletişim bilgilerimi kullanabilirsiniz.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="bg-light p-4 rounded-3 h-100 text-center shadow-sm">
+                    <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                    <h5 class="mb-2">Adres</h5>
+                    <p class="mb-0">İstanbul, Türkiye</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-light p-4 rounded-3 h-100 text-center shadow-sm">
+                    <i class="fas fa-phone fa-2x text-primary mb-3"></i>
+                    <h5 class="mb-2">Telefon</h5>
+                    <p class="mb-0"><a href="tel:+905551112233" class="text-decoration-none text-dark">+90 555 111 22 33</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-light p-4 rounded-3 h-100 text-center shadow-sm">
+                    <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
+                    <h5 class="mb-2">E-Posta</h5>
+                    <p class="mb-0"><a href="mailto:info@bunyaminyusufoglu.com" class="text-decoration-none text-dark">info@bunyaminyusufoglu.com</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
