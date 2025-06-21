@@ -122,13 +122,13 @@ include 'includes/header.php';
             <div class="col-lg-4">
                 <div class="bg-light p-4 rounded-3 h-100 shadow-sm">
                     <h4 class="text-center mb-4">Frontend</h4>
-                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary p-3">HTML5</span>
-                        <span class="badge bg-primary p-3">CSS3</span>
-                        <span class="badge bg-primary p-3">JavaScript</span>
-                        <span class="badge bg-primary p-3">React</span>
-                        <span class="badge bg-primary p-3">Angular</span>
-                        <span class="badge bg-primary p-3">Vue.js</span>
+                    <div class="d-flex flex-column justify-content-center gap-2">
+                        <span class="badge bg-primary p-2">HTML5</span>
+                        <span class="badge bg-primary p-2">CSS3</span>
+                        <span class="badge bg-primary p-2">JavaScript</span>
+                        <span class="badge bg-primary p-2">React</span>
+                        <span class="badge bg-primary p-2">Angular</span>
+                        <span class="badge bg-primary p-2">Vue.js</span>
                     </div>
                 </div>
             </div>
@@ -136,12 +136,12 @@ include 'includes/header.php';
             <div class="col-lg-4">
                 <div class="bg-light p-4 rounded-3 h-100">
                     <h4 class="text-center mb-4">Backend</h4>
-                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary p-3">PHP</span>
-                        <span class="badge bg-primary p-3">Node.js</span>
-                        <span class="badge bg-primary p-3">Python</span>
-                        <span class="badge bg-primary p-3">Laravel</span>
-                        <span class="badge bg-primary p-3">Express.js</span>
+                    <div class="d-flex flex-column justify-content-center gap-2">
+                        <span class="badge bg-primary p-2">PHP</span>
+                        <span class="badge bg-primary p-2">Node.js</span>
+                        <span class="badge bg-primary p-2">Python</span>
+                        <span class="badge bg-primary p-2">Laravel</span>
+                        <span class="badge bg-primary p-2">Express.js</span>
                     </div>
                 </div>
             </div>
@@ -149,11 +149,11 @@ include 'includes/header.php';
             <div class="col-lg-4">
                 <div class="bg-light p-4 rounded-3 h-100">
                     <h4 class="text-center mb-4">Veritabanı</h4>
-                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary p-3">MySQL</span>
-                        <span class="badge bg-primary p-3">MongoDB</span>
-                        <span class="badge bg-primary p-3">PostgreSQL</span>
-                        <span class="badge bg-primary p-3">Redis</span>
+                    <div class="d-flex flex-column justify-content-center gap-2">
+                        <span class="badge bg-primary p-2">MySQL</span>
+                        <span class="badge bg-primary p-2">MongoDB</span>
+                        <span class="badge bg-primary p-2">PostgreSQL</span>
+                        <span class="badge bg-primary p-2">Redis</span>
                     </div>
                 </div>
             </div>
