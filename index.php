@@ -102,7 +102,7 @@ include 'includes/header.php';
         </div>
         
         <div class="text-center mt-5">
-            <a href="projects.php" class="btn btn-primary btn-lg">
+            <a href="projects.php" class="btn btn-outline-primary btn-lg">
                 <i class="fas fa-project-diagram me-2"></i>
                 Tüm Projeleri Gör
             </a>
@@ -178,7 +178,8 @@ include 'includes/header.php';
         <div class="row g-4 justify-content-center">
             <div class="col-md-12 col-lg-6">
                 <div class="card h-100 shadow-sm border-0">
-                    <div class="card-body">
+                    <div class="card-body p-4 text-center">
+                        <img src="assets/img/iste.png" alt="İskenderun Teknik Üniversitesi" class="img-fluid mb-3">
                         <h5 class="card-title mb-1">İstanbul Teknik Üniversitesi</h5>
                         <p class="text-primary mb-1">Bilgisayar Mühendisliği (Lisans)</p>
                         <p class="text-muted mb-2">2018 - 2022</p>
@@ -188,11 +189,12 @@ include 'includes/header.php';
             </div>
             <div class="col-md-12 col-lg-6">
                 <div class="card h-100 shadow-sm border-0">
-                    <div class="card-body">
-                        <h5 class="card-title mb-1">Udemy</h5>
-                        <p class="text-primary mb-1">Full Stack Web Development (Sertifika)</p>
-                        <p class="text-muted mb-2">2021</p>
-                        <p class="mb-0">Modern web teknolojileri ile full stack geliştirme eğitimi.</p>
+                    <div class="card-body p-4 text-center">
+                        <img src="assets/img/ial.jpeg" alt="İstanbul Anadolu Lisesi" class="img-fluid mb-3">
+                        <h5 class="card-title mb-1">İstanbul Anadolu Lisesi</h5>
+                        <p class="text-primary mb-1">Fen Bilimleri</p>
+                        <p class="text-muted mb-2">2018 - 2021</p>
+                        <p class="mb-0">Fen bilimleri alanında kapsamlı eğitim ve projeler.</p>
                     </div>
                 </div>
             </div>
