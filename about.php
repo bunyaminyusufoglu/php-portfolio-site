@@ -1,6 +1,10 @@
 <?php
 $page_title = "Hakkımda";
 include 'includes/header.php';
+require_once __DIR__ . '/includes/db.php';
+
+// Sadece aktif yetenekleri çek
+$skills = $db->fetchAll("SELECT * FROM skills WHERE is_active = 1 ORDER BY id DESC");
 ?>
 
 <!-- Hero Section -->
@@ -120,68 +124,24 @@ include 'includes/header.php';
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="display-5 fw-bold">Yeteneklerim</h2>
-            <p class="lead text-muted">Kullandığım teknolojiler ve seviyelerim</p>
+            <p class="lead text-muted">Kullandığım teknolojiler</p>
         </div>
-        
         <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="bg-white p-4 rounded-3 h-100 shadow-sm">
-                    <h4 class="text-center mb-4 text-primary">Frontend</h4>
-                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary p-3">HTML5</span>
-                        <span class="badge bg-primary p-3">CSS3</span>
-                        <span class="badge bg-primary p-3">JavaScript</span>
-                        <span class="badge bg-primary p-3">React</span>
-                        <span class="badge bg-primary p-3">Angular</span>
-                        <span class="badge bg-primary p-3">Vue.js</span>
-                        <span class="badge bg-primary p-3">Bootstrap</span>
-                        <span class="badge bg-primary p-3">Sass</span>
-                    </div>
+            <div class="col-12">
+                <div class="bg-white p-4 rounded-3 h-100 shadow-sm text-center">
+                    <?php if (count($skills) > 0): ?>
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <?php foreach ($skills as $skill): ?>
+                                <span class="badge bg-primary p-3"><?php echo htmlspecialchars($skill['title']); ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                        <div class="alert alert-info">Henüz yetenek eklenmedi.</div>
+                    <?php endif; ?>
                 </div>
             </div>
-            
-            <div class="col-lg-4">
-                <div class="bg-white p-4 rounded-3 h-100 shadow-sm">
-                    <h4 class="text-center mb-4 text-primary">Backend</h4>
-                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary p-3">PHP</span>
-                        <span class="badge bg-primary p-3">Node.js</span>
-                        <span class="badge bg-primary p-3">Python</span>
-                        <span class="badge bg-primary p-3">Laravel</span>
-                        <span class="badge bg-primary p-3">Express.js</span>
-                        <span class="badge bg-primary p-3">Django</span>
-                        <span class="badge bg-primary p-3">REST API</span>
-                        <span class="badge bg-primary p-3">GraphQL</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-4">
-                <div class="bg-white p-4 rounded-3 h-100 shadow-sm">
-                    <h4 class="text-center mb-4 text-primary">Veritabanı & DevOps</h4>
-                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                        <span class="badge bg-primary p-3">MySQL</span>
-                        <span class="badge bg-primary p-3">MongoDB</span>
-                        <span class="badge bg-primary p-3">PostgreSQL</span>
-                        <span class="badge bg-primary p-3">Redis</span>
-                        <span class="badge bg-primary p-3">Git</span>
-                        <span class="badge bg-primary p-3">Docker</span>
-                        <span class="badge bg-primary p-3">AWS</span>
-                        <span class="badge bg-primary p-3">Linux</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-5">
-            <a href="skills.php" class="btn btn-outline-primary btn-lg">
-                <i class="fas fa-code me-2"></i>
-                Detaylı Yeteneklerim
-            </a>
         </div>
     </div>
 </section>
-
-
 
 <?php include 'includes/footer.php'; ?>
