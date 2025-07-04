@@ -52,7 +52,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./egitim.php" class="nav-link">
+                <a href="./education.php" class="nav-link">
                   <i class="nav-icon bi bi-book"></i>
                   <p>Eğitimlerim</p>
                 </a>

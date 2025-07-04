@@ -1,34 +1,58 @@
 <?php
+require_once 'includes/db.php';
 $page_title = "Eğitim";
+
+// Eğitim verilerini veritabanından çek
+$educations = $db->fetchAll('SELECT * FROM education ORDER BY end_year DESC');
+
 include 'includes/header.php';
 ?>
 
 <section class="py-5 bg-light">
     <div class="container">
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-6">
-                <div class="card h-100 shadow-sm border-0">
-                    <div class="card-body p-4 text-center">
-                        <img src="assets/img/iste.png" alt="İskenderun Teknik Üniversitesi" class="img-fluid mb-3">
-                        <h5 class="card-title mb-1">İstanbul Teknik Üniversitesi</h5>
-                        <p class="text-primary mb-1">Bilgisayar Mühendisliği (Lisans)</p>
-                        <p class="text-muted mb-2">2018 - 2022</p>
-                        <p class="mb-0">Bilgisayar mühendisliği alanında kapsamlı eğitim ve projeler.</p>
-                    </div>
+        
+        <?php if (empty($educations)): ?>
+            <div class="text-center py-5">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Henüz eğitim bilgisi eklenmemiş.
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="card h-100 shadow-sm border-0">
-                    <div class="card-body p-4 text-center">
-                        <img src="assets/img/ial.jpeg" alt="İstanbul Anadolu Lisesi" class="img-fluid mb-3">
-                        <h5 class="card-title mb-1">İstanbul Anadolu Lisesi</h5>
-                        <p class="text-primary mb-1">Fen Bilimleri</p>
-                        <p class="text-muted mb-2">2018 - 2021</p>
-                        <p class="mb-0">Fen bilimleri alanında kapsamlı eğitim ve projeler.</p>
+        <?php else: ?>
+            <div class="row g-4 justify-content-center">
+                <?php foreach ($educations as $education): ?>
+                    <div class="col-lg-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body p-4 text-center">
+                                <?php if ($education['image_path']): ?>
+                                    <img src="<?php echo $education['image_path']; ?>" 
+                                         alt="<?php echo htmlspecialchars($education['school_name']); ?>" 
+                                         class="img-fluid mb-3" 
+                                         style="max-height: 120px; object-fit: contain;">
+                                <?php else: ?>
+                                    <div class="bg-light rounded mb-3 d-flex align-items-center justify-content-center" 
+                                         style="height: 120px;">
+                                        <i class="fas fa-graduation-cap fa-3x text-muted"></i>
+                                    </div>
+                                <?php endif; ?>
+                                
+                                <h5 class="card-title mb-1"><?php echo htmlspecialchars($education['school_name']); ?></h5>
+                                
+                                <?php if ($education['department']): ?>
+                                    <p class="text-primary mb-1"><?php echo htmlspecialchars($education['department']); ?></p>
+                                <?php endif; ?>
+                                
+                                <p class="text-muted mb-2"><?php echo $education['start_year'] . ' - ' . $education['end_year']; ?></p>
+                                
+                                <?php if ($education['description']): ?>
+                                    <p class="mb-0"><?php echo htmlspecialchars($education['description']); ?></p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-        </div>
+        <?php endif; ?>
     </div>
 </section>
 
