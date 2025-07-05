@@ -50,19 +50,19 @@
                     <li class="nav-item">
                         <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'projects.php' ? 'active' : ''; ?>" href="projects.php">
                             <i class="fas fa-project-diagram me-1"></i>
-                            Projeler
+                            Projelerim
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'skills.php' ? 'active' : ''; ?>" href="skills.php">
                             <i class="fas fa-tools me-1"></i>
-                            Yetenekler
+                            Yeteneklerim
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'education.php' ? 'active' : ''; ?>" href="education.php">
                             <i class="fas fa-graduation-cap me-1"></i>
-                            Eğitim
+                            Eğitim Geçmişim
                         </a>
                     </li>
                     <li class="nav-item">

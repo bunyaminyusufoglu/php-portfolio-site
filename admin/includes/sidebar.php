@@ -58,7 +58,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./iletisim.php" class="nav-link">
+                <a href="contact.php" class="nav-link">
                   <i class="nav-icon bi bi-envelope"></i>
                   <p>İletişim</p>
                 </a>

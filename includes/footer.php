@@ -6,102 +6,111 @@
     <!-- Footer -->
     <footer class="bg-dark text-light py-5 mt-5">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <!-- Brand Section -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h4 class="text-white mb-3">
+                <div class="col-lg-4 col-md-6 mb-4 text-center">
+                    <?php
+                    if (isset($db)) {
+                        $row = $db->fetch("SELECT content_value FROM about_page WHERE section_name = 'profile' AND content_key = 'title' AND is_active = 1 LIMIT 1");
+                        if ($row && !empty($row['content_value'])) {
+                            $footer_name = htmlspecialchars($row['content_value']);
+                        }
+                        $row = $db->fetch("SELECT content_value FROM about_page WHERE section_name = 'profile' AND content_key = 'description' AND is_active = 1 LIMIT 1");
+                        if ($row && !empty($row['content_value'])) {
+                            $footer_title = htmlspecialchars($row['content_value']);
+                        }
+                    }
+                    ?>
+                    <h4 class="text-white mb-1">
                         <i class="fas fa-code me-2"></i>
-                        Portfolio
+                        <?php echo $footer_name; ?>
                     </h4>
-                    <p class="text-white">
-                        Modern web teknolojileri ile profesyonel çözümler geliştiren tutkulu bir yazılım geliştiricisiyim.
+                    <p class="text-white-50 mb-4" style="font-size:1.1rem;">
+                        <?php echo $footer_title; ?>
                     </p>
-                    <div class="social-links">
-                        <a href="#" class="text-white me-3 fs-5" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="text-white me-3 fs-5" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="text-white me-3 fs-5" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-white fs-5" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
+                    <?php
+                    // Sosyal medya linklerini çek
+                    if (isset($db)) {
+                        $social_media = $db->fetchAll("SELECT * FROM social_media WHERE is_active = 1 ORDER BY sort_order ASC");
+                        if (!empty($social_media)) {
+                            echo '<div class="social-links">';
+                            foreach ($social_media as $social) {
+                                echo '<a href="' . htmlspecialchars($social['url']) . '" 
+                                       class="text-white me-3 fs-5" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       title="' . htmlspecialchars($social['platform']) . '">
+                                        <i class="' . htmlspecialchars($social['icon']) . '"></i>
+                                    </a>';
+                            }
+                            echo '</div>';
+                        }
+                    } ?>
                 </div>
 
                 <!-- Quick Links -->
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h4 class="text-white mb-3">Hızlı Linkler</h4>
+                <div class="col-lg-3 col-md-6 mb-4 text-center">
+                    <h5 class="text-white mb-3">Hızlı Linkler</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <a href="about.php" class="text-white text-decoration-none">Hakkımda</a>
+                            <a href="about.php" class="text-white-50 text-decoration-none hover-white">Hakkımda</a>
                         </li>
                         <li class="mb-2">
-                            <a href="projects.php" class="text-white text-decoration-none">Projeler</a>
+                            <a href="projects.php" class="text-white-50 text-decoration-none hover-white">Projelerim</a>
                         </li>
                         <li class="mb-2">
-                            <a href="skills.php" class="text-white text-decoration-none">Yetenekler</a>
+                            <a href="skills.php" class="text-white-50 text-decoration-none hover-white">Yeteneklerim</a>
                         </li>
                         <li class="mb-2">
-                            <a href="contact.php" class="text-white text-decoration-none">İletişim</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Services -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="text-white mb-3">Hizmetler</h4>
-                    <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <a href="#" class="text-white text-decoration-none">Web Geliştirme</a>
+                            <a href="education.php" class="text-white-50 text-decoration-none hover-white">Eğitim</a>
                         </li>
                         <li class="mb-2">
-                            <a href="#" class="text-white text-decoration-none">Mobil Uygulama</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#" class="text-white text-decoration-none">UI/UX Tasarım</a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="#" class="text-white text-decoration-none">Danışmanlık</a>
+                            <a href="contact.php" class="text-white-50 text-decoration-none hover-white">İletişim</a>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Contact Info -->
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="text-white mb-3">İletişim</h4>
-                    <div class="contact-info">
-                        <p class="text-white mb-2">
-                            <i class="fas fa-envelope me-2"></i>
-                            info@example.com
-                        </p>
-                        <p class="text-white mb-2">
-                            <i class="fas fa-phone me-2"></i>
-                            +90 555 123 4567
-                        </p>
-                        <p class="text-white mb-2">
-                            <i class="fas fa-map-marker-alt me-2"></i>
-                            İstanbul, Türkiye
-                        </p>
-                    </div>
+                <div class="col-lg-3 col-md-6 mb-4 text-center">
+                    <h5 class="text-white mb-3">İletişim</h5>
+                    <?php
+                    // İletişim bilgilerini çek
+                    if (isset($db)) {
+                        $contact_info = $db->fetchAll("SELECT * FROM contact_info WHERE is_active = 1 ORDER BY sort_order ASC LIMIT 3");
+                        if (!empty($contact_info)) {
+                            echo '<div class="contact-info">';
+                            foreach ($contact_info as $contact) {
+                                echo '<p class="text-white-50 mb-2">';
+                                echo '<i class="' . htmlspecialchars($contact['icon']) . ' me-2"></i>';
+                                if ($contact['type'] === 'email') {
+                                    echo '<a href="mailto:' . htmlspecialchars($contact['value']) . '" class="text-white-50 text-decoration-none">';
+                                    echo htmlspecialchars($contact['value']);
+                                    echo '</a>';
+                                } elseif ($contact['type'] === 'phone') {
+                                    echo '<a href="tel:' . htmlspecialchars($contact['value']) . '" class="text-white-50 text-decoration-none">';
+                                    echo htmlspecialchars($contact['value']);
+                                    echo '</a>';
+                                } else {
+                                    echo htmlspecialchars($contact['value']);
+                                }
+                                echo '</p>';
+                            }
+                            echo '</div>';
+                        } else {
+                            echo '<p class="text-white-50">İletişim bilgileri yakında eklenecek.</p>';
+                        }
+                    } else {
+                        echo '<p class="text-white-50">İletişim bilgileri yakında eklenecek.</p>';
+                    } ?>
                 </div>
             </div>
 
             <!-- Footer Bottom -->
             <hr class="my-4 bg-secondary">
             <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start">
-                        <p class="text-white mb-0">
+                <div class="col-12 text-center">
+                    <p class="text-white-50 mb-0">
                         &copy; <?php echo date('Y'); ?> Portfolio. Tüm hakları saklıdır.
-                    </p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="text-white mb-0">
-                        <a href="#" class="text-white text-decoration-none me-3">Gizlilik Politikası</a>
-                        <a href="#" class="text-white text-decoration-none">Kullanım Şartları</a>
                     </p>
                 </div>
             </div>
@@ -112,6 +121,23 @@
     <button id="scrollToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4 d-none" style="z-index: 1000;">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Custom CSS -->
+    <style>
+        .hover-white:hover {
+            color: white !important;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+    </style>
 
     <!-- Custom JavaScript -->
     <script>

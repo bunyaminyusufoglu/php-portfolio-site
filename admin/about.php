@@ -59,8 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         $title = $_POST['title'] ?? '';
+        $unvan = $_POST['unvan'] ?? '';
         $description = $_POST['description'] ?? '';
         $db->update('about_page', ['content_value' => $title], "page_name='about' AND section_name='profile' AND content_key='title'", []);
+        $db->update('about_page', ['content_value' => $unvan], "page_name='about' AND section_name='profile' AND content_key='unvan'", []);
         $db->update('about_page', ['content_value' => $description], "page_name='about' AND section_name='profile' AND content_key='description'", []);
         $success = true;
     }
@@ -135,11 +137,15 @@ include 'includes/header.php';
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">Adınız Soyadınız</label>
-                            <input type="text" class="form-control" id="title" name="title" value="<?php echo htmlspecialchars($profile['title'] ?? ''); ?>" placeholder="Bünyamin YUSUFOĞLU">
+                            <input type="text" class="form-control" id="title" name="title" value="<?php echo htmlspecialchars($profile['title'] ?? ''); ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Ünvan Giriniz</label>
-                            <input type="text" class="form-control" id="description" name="description" value="<?php echo htmlspecialchars($profile['description'] ?? ''); ?>" placeholder="Full Stack Developer">
+                            <label for="unvan" class="form-label">Ünvan Giriniz</label>
+                            <input type="text" class="form-control" id="unvan" name="unvan" value="<?php echo htmlspecialchars($profile['unvan'] ?? ''); ?>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Açıklama Giriniz</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"><?php echo htmlspecialchars($profile['description']); ?></textarea>
                         </div>
                         <button type="submit" name="profile_submit" class="btn btn-success w-100">Güncelle</button>
                     </form>
