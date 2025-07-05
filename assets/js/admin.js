@@ -1162,4 +1162,15 @@
     exports.initAccessibility = initAccessibility;
 
 }));
+
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleBtn = document.querySelector('[data-lte-toggle="sidebar"]');
+    const sidebar = document.querySelector('.app-sidebar');
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            sidebar.classList.toggle('sidebar-collapsed');
+        });
+    }
+});
 //# sourceMappingURL=adminlte.js.map

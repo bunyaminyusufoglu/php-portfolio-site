@@ -15,7 +15,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Session Configuration
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Timezone
 date_default_timezone_set('Europe/Istanbul');

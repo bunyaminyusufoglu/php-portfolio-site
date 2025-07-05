@@ -1,5 +1,5 @@
 <?php
-$page_title = "Projeler";
+$page_title = "Projelerim";
 include 'includes/header.php';
 require_once __DIR__ . '/includes/db.php';
 

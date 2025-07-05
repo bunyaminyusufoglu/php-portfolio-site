@@ -1,13 +1,8 @@
 <nav class="app-header navbar navbar-expand bg-body">
         <div class="container-fluid">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
-                <i class="bi bi-list"></i>
-              </a>
-            </li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item d-none d-md-block"><a href="dashboard.php" class="nav-link">Ana Sayfa</a></li>
+            <li class="nav-item d-none d-md-block"><a href="contact.php" class="nav-link">İletişim</a></li>
           </ul>
         </div>
 </nav>
@@ -64,7 +59,7 @@
                 </a>
               </li>
               <li class="nav-item">
-              <a href="./ayarlar.php" class="nav-link">
+              <a href="./settings.php" class="nav-link">
                 <i class="nav-icon bi bi-gear"></i>
                 <p>Ayarlar</p>
               </a>
@@ -306,4 +301,5 @@
             const sparkline3 = new ApexCharts(document.querySelector('#sparkline-3'), option_sparkline3);
             sparkline3.render();
 </script>
+
 <script src="../../assets/js/admin.js"></script>

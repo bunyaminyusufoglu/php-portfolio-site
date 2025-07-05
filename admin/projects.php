@@ -1,4 +1,5 @@
 <?php
+require_once 'includes/auth_check.php';
 require_once __DIR__ . '/../includes/db.php';
 $page_title = "Projeler";
 include 'includes/header.php';

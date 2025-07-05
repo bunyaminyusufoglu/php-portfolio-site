@@ -1,5 +1,8 @@
 <?php
-session_start();
+// session_start(); // Bunu kaldır!
+
+// Veritabanı bağlantısını dahil et
+require_once '../includes/db.php';
 
 // Check if user is already logged in
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
@@ -11,17 +14,25 @@ $error_message = '';
 
 // Handle login form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
+    $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
     
-    // Simple authentication (you should use proper password hashing in production)
-    if ($username === 'admin' && $password === 'admin123') {
-        $_SESSION['admin_logged_in'] = true;
-        $_SESSION['admin_username'] = $username;
-        header('Location: dashboard.php');
-        exit();
+    if (empty($username) || empty($password)) {
+        $error_message = 'Kullanıcı adı ve şifre gereklidir!';
     } else {
-        $error_message = 'Kullanıcı adı veya şifre hatalı!';
+        // Kullanıcıyı veritabanında ara (hash yok, doğrudan karşılaştır)
+        $sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
+        $user = $db->fetch($sql, [$username, $password]);
+        
+        if ($user) {
+            $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_id'] = $user['id'];
+            $_SESSION['admin_username'] = $user['username'];
+            header('Location: dashboard.php');
+            exit();
+        } else {
+            $error_message = 'Kullanıcı adı veya şifre hatalı!';
+        }
     }
 }
 ?>

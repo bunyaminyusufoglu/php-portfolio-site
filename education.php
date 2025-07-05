@@ -1,6 +1,6 @@
 <?php
 require_once 'includes/db.php';
-$page_title = "Eğitim";
+$page_title = "Eğitim Geçmişim";
 
 // Eğitim verilerini veritabanından çek
 $educations = $db->fetchAll('SELECT * FROM education ORDER BY end_year DESC');

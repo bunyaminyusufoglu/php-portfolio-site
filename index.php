@@ -1,6 +1,5 @@
 <?php
 require_once 'includes/db.php';
-$page_title = "Ana Sayfa";
 
 // About sayfasından profil bilgilerini çek
 $profile = [];
@@ -48,11 +47,11 @@ include 'includes/header.php';
                     <?php echo htmlspecialchars($profile['description']); ?>
                 </p>
                 <div class="d-flex gap-3">
-                    <a href="projects.php" class="btn btn-primary btn-lg">
+                    <a href="projects.php" class="btn btn-primary btn-md">
                         <i class="fas fa-project-diagram me-2"></i>
                         Projelerimi Gör
                     </a>
-                    <a href="contact.php" class="btn btn-outline-primary btn-lg">
+                    <a href="contact.php" class="btn btn-outline-primary btn-md">
                         <i class="fas fa-envelope me-2"></i>
                         İletişime Geç
                     </a>
@@ -68,7 +67,7 @@ include 'includes/header.php';
                         </div>
                     <?php endif; ?>
                     <h3 class="mt-3"><?php echo htmlspecialchars($profile['title'] ?? 'Bünyamin YUSUFOĞLU'); ?></h3>
-                    <p class="text-muted"><?php echo htmlspecialchars($profile['description'] ?? 'Full Stack Developer'); ?></p>
+                    <p class="text-muted"><?php echo htmlspecialchars($profile['unvan'] ?? 'Full Stack Developer'); ?></p>
                 </div>
             </div>
         </div>
@@ -123,7 +122,7 @@ include 'includes/header.php';
         <?php endif; ?>
         
         <div class="text-center mt-5">
-            <a href="projects.php" class="btn btn-outline-primary btn-lg">
+            <a href="projects.php" class="btn btn-outline-primary btn-md">
                 <i class="fas fa-project-diagram me-2"></i>
                 Tüm Projeleri Gör
             </a>
@@ -149,10 +148,9 @@ include 'includes/header.php';
             <div class="row g-4">
                 <div class="col-lg-12">
                     <div class="bg-light p-4 rounded-3 h-100 shadow-sm">
-                        <h4 class="text-center mb-4">Yeteneklerim</h4>
                         <div class="d-flex flex-wrap justify-content-center gap-2">
                             <?php foreach ($skills as $skill): ?>
-                                <span class="badge bg-primary p-2"><?php echo htmlspecialchars($skill['title']); ?></span>
+                                <span class="badge bg-primary px-3 py-4" style="font-size: 1.2rem;"><?php echo htmlspecialchars($skill['title']); ?></span>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -161,7 +159,7 @@ include 'includes/header.php';
         <?php endif; ?>
         
         <div class="text-center mt-5">
-            <a href="skills.php" class="btn btn-outline-primary btn-lg">
+            <a href="skills.php" class="btn btn-outline-primary btn-md">
                 <i class="fas fa-tools me-2"></i>
                 Tüm Yeteneklerimi Gör
             </a>
@@ -218,7 +216,7 @@ include 'includes/header.php';
             </div>
         <?php endif; ?>
         <div class="text-center mt-5">
-            <a href="education.php" class="btn btn-outline-primary btn-lg">
+            <a href="education.php" class="btn btn-outline-primary btn-md">
                 <i class="fas fa-graduation-cap me-2"></i>
                 Tüm Eğitim Geçmişim
             </a>
@@ -273,7 +271,7 @@ include 'includes/header.php';
                 <div class="d-flex justify-content-center gap-3">
                     <?php foreach ($social_media as $social): ?>
                         <a href="<?php echo htmlspecialchars($social['url']); ?>" 
-                           class="btn btn-outline-primary btn-lg" 
+                           class="btn btn-outline-primary btn-md" 
                            target="_blank" 
                            rel="noopener noreferrer"
                            title="<?php echo htmlspecialchars($social['platform']); ?>">

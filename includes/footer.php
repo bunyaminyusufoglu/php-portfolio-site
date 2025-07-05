@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Brand Section -->
-                <div class="col-lg-4 col-md-6 mb-4 text-center">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <?php
                     if (isset($db)) {
                         $row = $db->fetch("SELECT content_value FROM about_page WHERE section_name = 'profile' AND content_key = 'title' AND is_active = 1 LIMIT 1");
@@ -49,7 +49,7 @@
                 </div>
 
                 <!-- Quick Links -->
-                <div class="col-lg-3 col-md-6 mb-4 text-center">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-white mb-3">Hızlı Linkler</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
@@ -71,7 +71,7 @@
                 </div>
 
                 <!-- Contact Info -->
-                <div class="col-lg-3 col-md-6 mb-4 text-center">
+                <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-white mb-3">İletişim</h5>
                     <?php
                     // İletişim bilgilerini çek
@@ -109,8 +109,13 @@
             <hr class="my-4 bg-secondary">
             <div class="row align-items-center">
                 <div class="col-12 text-center">
+                    <?php
+                    require_once __DIR__ . '/db.php';
+                    $seo = $db->fetch("SELECT * FROM seo_settings WHERE id = 1");
+                    $site_title = isset($seo['site_title']) && $seo['site_title'] !== '' ? $seo['site_title'] : 'Portfolio';
+                    ?>
                     <p class="text-white-50 mb-0">
-                        &copy; <?php echo date('Y'); ?> Portfolio. Tüm hakları saklıdır.
+                        &copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($site_title); ?>. Tüm hakları saklıdır.
                     </p>
                 </div>
             </div>
