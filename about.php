@@ -48,16 +48,16 @@ include 'includes/header.php';
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 text-center">
-                <div class="bg-white p-4 rounded-3 shadow">
+                <div class="profile-card p-4 rounded-3 shadow">
                     <?php if (!empty($profile['photo'])): ?>
                         <img src="<?php echo str_replace('../', '', $profile['photo']); ?>" alt="Profil Resmi" class="img-fluid rounded-circle mb-3" style="width: 300px; height: 300px; object-fit: cover;">
                     <?php else: ?>
-                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 300px; height: 300px;">
-                            <i class="fas fa-user fa-6x text-muted"></i>
+                        <div class="profile-placeholder rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 300px; height: 300px;">
+                            <i class="fas fa-user fa-6x"></i>
                         </div>
                     <?php endif; ?>
                     <h3 class="mt-3"><?php echo htmlspecialchars($profile['title'] ?? 'Bünyamin YUSUFOĞLU'); ?></h3>
-                    <p class="text-muted"><?php echo htmlspecialchars($profile['description'] ?? 'Full Stack Developer'); ?></p>
+                    <p class="profile-subtitle"><?php echo htmlspecialchars($profile['description'] ?? 'Full Stack Developer'); ?></p>
                 </div>
             </div>
 
@@ -150,7 +150,7 @@ include 'includes/header.php';
         </div>
         <div class="row g-4">
             <div class="col-12">
-                <div class="bg-white p-4 rounded-3 h-100 shadow-sm text-center">
+                <div class="profile-card p-4 rounded-3 h-100 shadow-sm text-center">
                     <?php if (count($skills) > 0): ?>
                         <div class="d-flex flex-wrap justify-content-center gap-2">
                             <?php foreach ($skills as $skill): ?>

@@ -30,7 +30,7 @@ function skill_icon($title) {
     <div class="container">
         <div class="row g-4">
             <?php foreach ($skills as $skill): ?>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-3 col-md-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body text-center p-4">
                         <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">

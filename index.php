@@ -34,6 +34,7 @@ $social_media = $db->fetchAll("SELECT * FROM social_media WHERE is_active = 1 OR
 include 'includes/header.php';
 ?>
 
+
 <!-- Hero Section -->
 <section class="py-5 bg-light">
     <div class="container">
@@ -58,16 +59,16 @@ include 'includes/header.php';
                 </div>
             </div>
             <div class="col-lg-6 text-center">
-                <div class="bg-white p-4 rounded-3 shadow">
+                <div class="profile-card p-4 rounded-3 shadow">
                     <?php if (!empty($profile['photo'])): ?>
                         <img src="<?php echo str_replace('../', '', $profile['photo']); ?>" alt="Profil Resmi" class="img-fluid rounded-circle" style="width: 200px; height: 200px; object-fit: cover;">
                     <?php else: ?>
-                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 200px; height: 200px;">
-                            <i class="fas fa-user fa-4x text-muted"></i>
+                        <div class="profile-placeholder rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 200px; height: 200px;">
+                            <i class="fas fa-user fa-4x"></i>
                         </div>
                     <?php endif; ?>
                     <h3 class="mt-3"><?php echo htmlspecialchars($profile['title'] ?? 'Bünyamin YUSUFOĞLU'); ?></h3>
-                    <p class="text-muted"><?php echo htmlspecialchars($profile['unvan'] ?? 'Full Stack Developer'); ?></p>
+                    <p class="profile-subtitle"><?php echo htmlspecialchars($profile['unvan'] ?? 'Full Stack Developer'); ?></p>
                 </div>
             </div>
         </div>

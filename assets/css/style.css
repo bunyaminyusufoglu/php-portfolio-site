@@ -22,6 +22,26 @@
     
     --font-family: 'Poppins', sans-serif;
     --transition: all 0.3s ease;
+    
+    /* Light mode colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --text-primary: #334155;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --card-bg: #ffffff;
+    --shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --border-color: #334155;
+    --card-bg: #1e293b;
+    --shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== GLOBAL STYLES ===== */
@@ -34,19 +54,45 @@
 body {
     font-family: var(--font-family);
     line-height: 1.6;
-    color: var(--gray-700);
-    background-color: var(--white);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: var(--transition);
+}
+
+/* ===== DARK MODE TOGGLE BUTTON ===== */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    background-color: var(--bg-secondary);
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
 }
 
 /* ===== NAVIGATION STYLES ===== */
 .navbar {
     padding: 1rem 0;
     transition: var(--transition);
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-primary) !important;
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--primary-color) !important;
     text-decoration: none;
     transition: var(--transition);
@@ -58,18 +104,19 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: var(--gray-600) !important;
+    color: var(--text-secondary) !important;
     font-weight: 500;
     padding: 0.5rem 1rem !important;
     margin: 0 0.25rem;
     border-radius: 0.5rem;
     transition: var(--transition);
     position: relative;
+    font-size: .9rem;
 }
 
 .navbar-nav .nav-link:hover {
     color: var(--primary-color) !important;
-    background-color: var(--light-gray);
+    background-color: var(--bg-secondary);
     transform: translateY(-1px);
 }
 
@@ -96,6 +143,7 @@ body {
     padding: 0.5rem;
     border-radius: 0.5rem;
     transition: var(--transition);
+    color: var(--text-primary);
 }
 
 .navbar-toggler:focus {
@@ -110,6 +158,7 @@ body {
 .main-content {
     padding-top: 80px; /* Navbar height + extra space */
     min-height: calc(100vh - 80px);
+    background-color: var(--bg-primary);
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -125,11 +174,16 @@ body {
     }
     
     .navbar-nav .nav-link:hover {
-        background-color: var(--light-gray);
+        background-color: var(--bg-secondary);
     }
     
     .navbar-nav .nav-link.active {
         background-color: rgba(37, 99, 235, 0.1);
+    }
+    
+    .theme-toggle {
+        margin-left: 0;
+        margin-top: 0.5rem;
     }
 }
 
@@ -151,7 +205,11 @@ body {
 .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: var(--shadow) !important;
+}
+
+[data-theme="dark"] .navbar.scrolled {
+    background-color: rgba(15, 23, 42, 0.95) !important;
 }
 
 /* ===== ANIMATIONS ===== */
@@ -192,26 +250,26 @@ body {
 /* ===== CUSTOM COMPONENTS ===== */
 .navbar .dropdown-menu {
     border: none;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     border-radius: 0.5rem;
     padding: 0.5rem 0;
+    background-color: var(--card-bg);
 }
 
 .navbar .dropdown-item {
-    color: var(--gray-600);
+    color: var(--text-primary);
     padding: 0.5rem 1rem;
     transition: var(--transition);
 }
 
 .navbar .dropdown-item:hover {
-    background-color: var(--light-gray);
+    background-color: var(--bg-secondary);
     color: var(--primary-color);
 }
 
-/* ===== ACCESSIBILITY ===== */
 .navbar-nav .nav-link:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
 }
 
 /* ===== PRINT STYLES ===== */
@@ -221,6 +279,220 @@ body {
     }
     
     .main-content {
-        padding-top: 0;
+        padding-top: 0 !important;
     }
+    
+    .theme-toggle {
+        display: none !important;
+    }
+}
+
+/* ===== DARK MODE ADDITIONAL STYLES ===== */
+/* Card styles for dark mode */
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: var(--shadow);
+}
+
+/* Background sections */
+.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Text colors */
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+.text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+/* Alert styles */
+.alert {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.alert-info {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+/* Badge styles */
+.badge.bg-light {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Button outline styles */
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Form elements */
+.form-control {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.form-control:focus {
+    background-color: var(--card-bg);
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+
+/* Table styles */
+.table {
+    color: var(--text-primary);
+}
+
+.table th,
+.table td {
+    border-color: var(--border-color);
+}
+
+/* Modal styles */
+.modal-content {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.modal-header,
+.modal-footer {
+    border-color: var(--border-color);
+}
+
+/* Dropdown styles */
+.dropdown-menu {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.dropdown-item {
+    color: var(--text-primary);
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-secondary);
+    color: var(--primary-color);
+}
+
+/* List group styles */
+.list-group-item {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* Progress bar background */
+.progress {
+    background-color: var(--bg-secondary);
+}
+
+/* Image containers */
+.bg-light.rounded-circle {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Section backgrounds */
+section.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Smooth transitions for all elements */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===== PROFILE CARD STYLES ===== */
+.profile-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.profile-placeholder {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+.profile-subtitle {
+    color: var(--text-secondary);
+}
+
+/* ===== OVERRIDE BOOTSTRAP CLASSES ===== */
+/* Override bg-white class */
+.bg-white {
+    background-color: var(--card-bg) !important;
+}
+
+/* Override text-muted class */
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+/* Override bg-light class */
+.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* ===== ADDITIONAL DARK MODE FIXES ===== */
+/* Ensure all text elements use theme colors */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-primary);
+}
+
+/* Card backgrounds */
+.card.bg-white {
+    background-color: var(--card-bg) !important;
+}
+
+/* Section backgrounds */
+section.bg-light {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Button text colors */
+.btn-outline-primary {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Badge overrides */
+.badge.bg-light {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Alert overrides */
+.alert-info {
+    background-color: rgba(37, 99, 235, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--text-primary) !important;
 } 

@@ -7,7 +7,7 @@ $site_description = isset($seo['site_description']) ? $seo['site_description'] :
 $site_keywords = isset($seo['site_keywords']) ? $seo['site_keywords'] : '';
 ?>
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,10 +29,10 @@ $site_keywords = isset($seo['site_keywords']) ? $seo['site_keywords'] : '';
 </head>
 <body>
     <!-- Navigation Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
         <div class="container">
             <!-- Logo -->
-            <a class="navbar-brand fw-bold text-primary" href="index.php">
+            <a class="navbar-brand text-primary" href="index.php">
                 <i class="fas fa-code me-2"></i>
                 <?php echo htmlspecialchars($site_title); ?>
             </a>
@@ -81,6 +81,12 @@ $site_keywords = isset($seo['site_keywords']) ? $seo['site_keywords'] : '';
                             İletişim
                         </a>
                     </li>
+                    <!-- Dark Mode Toggle Button -->
+                    <li class="nav-item d-flex align-items-center">
+                        <button class="theme-toggle" id="themeToggle" aria-label="Karanlık modu aç/kapat">
+                            <i class="fas fa-moon" id="themeIcon"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -88,5 +94,50 @@ $site_keywords = isset($seo['site_keywords']) ? $seo['site_keywords'] : '';
 
     <!-- Main Content Wrapper -->
     <main class="main-content">
+
+    <!-- Dark Mode JavaScript -->
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+            
+            // Theme toggle click handler
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+            
+            // Update theme icon based on current theme
+            function updateThemeIcon(theme) {
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun';
+                    themeIcon.setAttribute('title', 'Açık moda geç');
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                    themeIcon.setAttribute('title', 'Karanlık moda geç');
+                }
+            }
+            
+            // Check system preference on load
+            if (!localStorage.getItem('theme')) {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const defaultTheme = prefersDark ? 'dark' : 'light';
+                html.setAttribute('data-theme', defaultTheme);
+                localStorage.setItem('theme', defaultTheme);
+                updateThemeIcon(defaultTheme);
+            }
+        });
+    </script>
 </body>
 </html> 
